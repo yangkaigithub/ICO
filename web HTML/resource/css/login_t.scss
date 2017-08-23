@@ -1,0 +1,218 @@
+#login_t{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 470px;
+  height: 370px;
+  box-shadow: 0 0 20px #ccc;
+  background-color: #ffffff;
+  h2 {
+    float: left;
+    width: 100%;
+    font-weight: normal;
+    font-size: 26px;
+    text-align: center;
+    margin: 30px 0;
+  }
+  form {
+    width: 390px;
+    margin: 25px auto 0;
+    > div {
+      float: left;
+      width: 100%;
+      margin-bottom: 20px;
+      > div {
+        float: left;
+        border: 1px solid #cccccc;
+        position: relative;
+
+        input {
+          height: 44px;
+          color: #aaaaaa;
+          border: 0 none;
+          outline: 0 none;
+          background-color: #ffffff;
+        }
+        input:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+        }
+        span {
+          color: #cccccc;
+          float: left;
+          width: 40px;
+          text-align: center;
+          line-height: 44px;
+        }
+        .ts {
+          position: absolute;
+          display: none;
+          left: 0;
+          line-height: 20px;
+          top: -21px;
+          background-color: #ffebeb;
+          width: 100%;
+          //color: red;
+          //border-radius: 3px;
+          //background-color: #ffffff;
+          //box-shadow: 0 0 5px #000;
+          color: #e53838;
+          text-indent: 40px;
+          font-size: 12px;
+        }
+      }
+
+      img {
+        float: right;
+        padding: 4px 0;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+      button {
+        float: right;
+        width: 100px;
+        height: 46px;
+        border: 0 none;
+        outline: 0 none;
+        background-color: #e36159;
+        color: #ffffff;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #ff6c64;
+      }
+      .input_100 {
+        width: 100%;
+        input {
+          width: 348px;
+        }
+      }
+      .input_70 {
+        width: 277px;
+        input {
+          width: 237px;
+        }
+      }
+    }
+    .tk {
+      text-align: center;
+      position: relative;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      p {
+        font-size: 14px;
+        a {
+          color: #e36159;
+        }
+      }
+      i {
+        position: absolute;
+        float: left;
+        width: 88px;
+        height: 1px;
+        background-color: #d7d7d7;
+      }
+      i:first-of-type {
+        left: 0;
+        top: 9px;
+      }
+      i:last-of-type {
+        right: 0;
+        top: 9px;
+      }
+    }
+    .zc {
+      margin-bottom: 30px;
+      margin-top: -10px;
+      a {
+        float: left;
+        color: #333333;
+        font-size: 14px;
+      }
+      p {
+        float: right;
+        font-size: 14px;
+        a {
+          float: none;
+          color: #e36159;
+        }
+      }
+      i {
+        position: absolute;
+        float: left;
+        width: 88px;
+        height: 1px;
+        background-color: #d7d7d7;
+      }
+      i:first-of-type {
+        left: 0;
+        top: 9px;
+      }
+      i:last-of-type {
+        right: 0;
+        top: 9px;
+      }
+    }
+    input[type=submit] {
+      height: 49px;
+      border: 0 none;
+      width: 100%;
+      border-radius: 4px;
+      background-color: #e36159;
+      color: #ffffff;
+      font-size: 22px;
+    }
+    input[type=submit]:hover {
+      cursor: pointer;
+      background-color: #ff6d65;
+    }
+  }
+  .dsf {
+    width: 330px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    div {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      p {
+        font-size: 14px;
+        color: #999999;
+      }
+      i {
+        position: absolute;
+        float: left;
+        width: 88px;
+        height: 1px;
+        background-color: #d7d7d7;
+      }
+      i:first-of-type {
+        left: 0;
+        top: 9px;
+      }
+      i:last-of-type {
+        right: 0;
+        top: 9px;
+      }
+    }
+    a {
+      display: inline-block;
+      margin: 0 10px 20px;
+    }
+
+  }
+  .go_login {
+    float: left;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    a {
+      color: #e36159;
+    }
+  }
+}

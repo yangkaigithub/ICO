@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="resource/css/base.css">
+    <link rel="stylesheet" href="resource/css/style.css">
+    <link rel="stylesheet" href="resource/font/iconfont.css">
+    <script src="resource/js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+
+<div id="header_m">
+    <div class="header">
+        <a id="logo" href="/">
+            <img src="resource/img/f_logo.png" alt="">
+        </a>
+        <ul id="nav">
+            <li><a href="index.html">首页 <i></i></a></li>
+            <li><a href="">ICO中<i></i></a></li>
+            <li><a href="">ICO预热<i></i></a></li>
+            <li><a href="">ICO项目库<i></i></a></li>
+            <li><a href="">交易中心<i></i></a></li>
+            <li><a href="information_disclosure.html">信息披露<i></i></a></li>
+            <li><a href="">我要ICO<i></i></a></li>
+        </ul>
+
+        <div id="loginAndR">
+            <div>
+                <a href="" style="margin-right: 20px">帮助中心</a>
+            </div>
+
+            <div>
+                <a style="margin-top: 14px" href="">
+                    <span class="iconfont icon-yonghu"></span>
+                    <span class="iconfont icon-triangledownfill"></span>
+                </a>
+                <div>
+                    <span class="iconfont icon-triangleupfill"></span>
+                    <i></i>
+                    <ul>
+                        <li><a href="member.html">会员中心</a></li>
+                        <li><a href="">我参与的项目</a></li>
+                        <li><a href="">ETH明细</a></li>
+                        <li><a href="">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="wantT">
+    <div class="wantT">
+        <div id="tck_ico">
+            <div class="tck_ico_top">
+                <div><i></i>ICO项目申请表</div>
+                <p>
+                    你好，如果你想在 ICOINFO 平台上展示你的区块链项目，并让用户参与ICO,请准备好相关资料，填写以下问题.我们会有专人与你联系
+                    <span><b>*</b>资料越详尽，申请通过的可能性越高，请你准备充足后在进行申请</span>
+                </p>
+            </div>
+
+            <form action="">
+                <div class="tck_ico_bot tck_ico_bot1">
+                    <div>
+                        <img src="resource/img/ico1.png" alt="">
+                    </div>
+                    <div>
+                        <p>项目名称</p>
+                        <input type="text" name="ico_pro_name" required="required">
+                    </div>
+                    <div>
+                        <p>项目阶段</p>
+                        <select name="ico_jd" required="required">
+                            <option value="">请选择</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>联系人姓名</p>
+                        <input type="text" name="ico_name" required="required">
+                    </div>
+                    <div>
+                        <p>联系邮箱</p>
+                        <input type="email" name="ico_email" required="required">
+                    </div>
+                    <div>
+                        <p>联系电话</p>
+                        <input type="tel" name="ico_tel" required="required">
+                    </div>
+                    <div>
+                        <p>公司地址</p>
+                        <input type="text" name="ico_dz" required="required">
+                    </div>
+                    <div>
+                        <input type="button" value="下一步" id="next">
+                    </div>
+                </div>
+                <div class="tck_ico_bot tck_ico_bot2">
+                    <div>
+                        <img src="resource/img/ico2.png" alt="">
+                    </div>
+                    <div>
+                        <p>团队人数</p>
+                        <input type="tel" name="ico_rs" required="required">
+                    </div>
+                    <div>
+                        <p>文件上传</p>
+                        <button>选择文件</button>
+                        <span>未选择任何文件</span>
+                        <input type="file" name="ico_wj" required="required">
+                    </div>
+                    <div>
+                        <p>项目简介</p>
+                        <input type="text" name="icojj" required="required">
+                    </div>
+                    <div>
+                        <p>项目简介</p>
+                        <textarea id="" cols="30" rows="10" required="required" name="ico_js"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" value="提交">
+                    </div>
+                </div>
+                <div class="tck_ico_bot tck_ico_bot3">
+                    <div>
+                        <img src="resource/img/ico3.png" alt="">
+                    </div>
+                    <div>
+                        <img src="resource/img/ico_o.png" alt="">
+                        <div>
+                            <h1>恭喜您，ICO项目提交成功</h1>
+                            <p>项目需要三个工作日的审核，敬请期待！</p>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <a>发布项目 <span class="iconfont icon-jia"></span></a>
+        <div>
+            <h1>如何在 ICO 上发起项目？</h1>
+            <p>ICOINFO 欢迎经验丰富、具有潜力的区块链项目一同参与，透过 ICOINFO 的平台推向全世界，如果你是符合条件的团队，请先参考以下申请条件，并提交申请表单，我们会有专人与你联系。</p>
+            <h3>申请条件</h3>
+            <p>一、请先确定你的项目符合 ICO 原则。</p>
+            <p>二、请先确定你的项目 ICO 预计开始的时间、发布策略，及 ICO 的目标金额及货币种类。</p>
+            <p>三、请先确定你的项目 ICO 成功后，后续的规划及代币发放的计划。</p>
+            <p>四、请先确定你的项目有详尽的商业计划书、白皮书、团队介绍等，各项能提高项目发展潜力的证明。</p>
+            <h3>申请流程</h3>
+            <p>填写表单 → 专业团队审核（专人联系）→ 审核通过 → 准备项目上线</p>
+            <p>*资料越详尽，申请通过的可能性越高，请你准备充足后再进行申请。</p>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="foot">
+    <div class="foot">
+        <div class="foot_head">
+            联系我们
+            <i class="san"></i>
+        </div>
+        <div>
+            <span class="iconfont icon-dingwei"></span>
+            <div>
+                <h2>联系我们</h2>
+                <p><span class="iconfont icon-dingwei"></span>地址：杭州市西湖区学院路德力西大神九楼 </p>
+                <p><span class="iconfont icon-youjian-copy"></span>客服电话：0571-28070506 传真：0571-86462577 </p>
+            </div>
+
+        </div>
+        <div>
+            <span class="iconfont icon-lianjie"></span>
+            <div>
+                <h2>友情链接</h2>
+                <p><span class="iconfont icon-lianjie"></span>金融区块链</p>
+                <p><span class="iconfont icon-lianjie"></span>金融区块链</p>
+                <p><span class="iconfont icon-lianjie"></span>金融区块链</p>
+            </div>
+
+        </div>
+        <div>
+            <span class="iconfont icon-bf-message"></span>
+            <div>
+                <h2>官方微信</h2>
+                <p>区块链微信公众号</p>
+                <p>扫一扫，关注我们</p>
+            </div>
+
+        </div>
+        <div>
+            <img src="resource/img/ewm.png" alt="">
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="footer">
+        <img src="resource/img/f_logo.png" alt="">
+        <p>版权所有 Copyright &copy; 2017 上海链贤信息科技有限公司 浙ICP备13007554号-17</p>
+    </div>
+</div>
+
+
+
+</body>
+<script src="resource/js/main.js"></script>
+<script src="resource/js/iwanttoIco.js"></script>
+</html>

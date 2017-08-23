@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="resource/css/mall.css">
+    <link rel="stylesheet" href="resource/font/iconfont.css">
+    <script src="resource/js/jquery-3.2.1.min.js"></script>
+    <script src="resource/js/city_select/jquery.cityselect.js"></script>
+</head>
+<body>
+<div id="header">
+    <div class="header">
+        <div id="logo">
+            <img src="resource/img/logo_head2.png" alt="">
+            <h1>链贤艺人商城</h1>
+        </div>
+
+        <div id="header_r">
+            <div id="seach">
+                <span class="iconfont icon-seach"></span>
+                <input type="search" name="seach">
+            </div>
+            <div id="shoppingCar">
+                <span class="iconfont icon-gouwuchekong"></span>
+                <i id="shopNub">0</i>
+            </div>
+
+            <div id="center">
+                <span class="iconfont icon-yonghu"></span>
+                <span class="iconfont icon-xiajiantou"></span>
+                <div>
+                    <span class="iconfont icon-shangjiantou"></span>
+                    <ul>
+                        <li><a href="">个人中心</a></li>
+                        <li><a href="">我的订单</a></li>
+                        <li><a href="">我的收货地址</a></li>
+                        <li><a href="">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div class="order">
+        <div class="order_l">
+            <img src="resource/img/user.png" alt="">
+            <ul>
+                <li><a href="">我的订单</a></li>
+                <li><a href="">我的优惠</a></li>
+                <li class="che"><a href="">收货地址</a></li>
+                <li><a href="">在线客服</a></li>
+            </ul>
+        </div>
+        <div class="order_r">
+            <div class="order_r_top">
+                <h3>收货信息</h3>
+            </div>
+            <div class="order_r_bot">
+                <form action="">
+                    <div>
+                        <input type="text" id="name" placeholder="请填写您真实姓名" required="required">
+                        <div class="ts"></div>
+                    </div>
+                    <div>
+                        <input type="tel" id="tel" name="tel" placeholder="手机号码" required="required">
+                        <div class="ts"></div>
+                    </div>
+                    <div id="city_2">
+                        <select class="prov"></select>
+                        <select class="city" disabled="disabled">
+                            <option>请选择城市</option>
+                        </select>
+                        <select class="dist" disabled="disabled">
+                            <option>请选择区县</option>
+                        </select>
+                    </div>
+                    <label>
+                        <i>
+                            <input type="checkbox" checked="checked" id="input_mr">
+                            <img src="resource/img/mr.png" alt="">
+                        </i>
+                        设为默认地址
+                    </label>
+                    <input type="submit" value="保存新地址">
+                    <input type="reset" hidden="hidden">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer">
+        <div class="footer_top">
+            <img src="resource/img/foot.png" alt="">
+        </div>
+        <div class="footer_bot">
+            <ul>
+                <li><a href="">关于我们</a></li>
+                <li><a href="">帮助中心</a></li>
+                <li><a href="">售后服务</a></li>
+                <li><a href="">配送与验收</a></li>
+                <li><a href="">商务合作</a></li>
+                <li><a href="">企业采购</a></li>
+                <li><a href="">开放平台</a></li>
+                <li><a href="">搜索推荐</a></li>
+                <li><a href="">友情链接</a></li>
+            </ul>
+            <p>上海链贤科技有限公司版权所有 &copy; 2017 浙ICP备13007554号-17</p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="resource/js/mall.js"></script>
+<script>
+    $("#city_2").citySelect({required: false,select_prov:"请选择省份",select_city:"请选择城市",select_dist:"请选择区县"});
+</script>
+</html>
