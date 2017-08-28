@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <context:annotation-config />
+    <!-- 自动扫描该包下所有组件，@Service-->
+    <context:component-scan base-package="com.starchain"/>
+
+    <!-- 引入配置文件 -->
+    <!--<context:property-placeholder location="classpath:jdbc.properties" />-->
+    <bean id="dbPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="1" />
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="location">
+            <value>classpath:jdbc.properties</value>
+        </property>
+    </bean>
+    <bean id="c3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="initialPoolSize" value="${initialPoolSize}"/>
+        <property name="maxPoolSize" value="${maxPoolSize}"/>
+        <property name="minPoolSize" value="${minPoolSize}"/>
+        <property name="maxIdleTime" value="${maxIdleTime}"/>
+        <property name="acquireIncrement" value="${acquireIncrement}"/>
+        <property name="acquireRetryAttempts" value="${acquireRetryAttempts}"/>
+        <property name="checkoutTimeout" value="${checkoutTimeout}"/>
+        <property name="idleConnectionTestPeriod" value="${idleConnectionTestPeriod}" />
+        <property name="preferredTestQuery" value="${preferredTestQuery}"/>
+    </bean>
+    <bean id="dataSource" parent="c3p0">
+        <property name="driverClass" value="${driverClass}" />
+        <property name="jdbcUrl" value="${jdbcUrl}" />
+        <property name="user" value="${username}" />
+        <property name="password" value="${password}" />
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 加载mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:config/mybatis.xml" />
+        <!-- 自动扫描mapping.xml文件 -->
+        <property name="mapperLocations" value="classpath:mapping/*"></property>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+
+    <!-- mapper扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+        <property name="basePackage" value="com.starchain.mapper"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+    <!--<bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.starchain.mapper.UserDao"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>-->
+
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- 开启事务配置@Transactional -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--<bean id="privilegeAspect" class="com.StarStrain.aspect.PrivilegeAspect"></bean>
+    <aop:config>
+        <aop:pointcut expression="execution(* com.StarStrain.service.impl.*(..))" id="perform"/>
+        <aop:aspect ref="privilegeAspect">
+            <aop:around method="isAccessMethod" pointcut-ref="perform"/>
+        </aop:aspect>
+    </aop:config>-->
+
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 自动给后面action的方法return的字符串加上前缀和后缀，变成一个可用的url地址 -->
+        <property name="prefix" value="/WEB-INF/views" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+</beans>

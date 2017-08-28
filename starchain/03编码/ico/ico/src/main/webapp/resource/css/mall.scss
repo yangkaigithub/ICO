@@ -1,0 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, "Microsoft YaHei";
+  text-decoration: none;
+  list-style: none;
+}
+
+#header {
+  float: left;
+  width: 100%;
+  .header {
+    width: 1200px;
+    margin: 0 auto;
+    #logo {
+      float: left;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      img {
+        float: left;
+        height: 60px;
+      }
+      h1 {
+        float: left;
+        font-size: 30px;
+        color: #333333;
+        line-height: 60px;
+        margin-left: 12px;
+      }
+    }
+    #header_r {
+      float: right;
+      #seach {
+        float: left;
+        height: 32px;
+        border: 1px solid #d9d9d9;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: 23px;
+        span {
+          float: left;
+          margin-left: 10px;
+          line-height: 32px;
+          font-size: 16px;
+          color: #7f7f7f;
+        }
+        input {
+          float: left;
+          height: 32px;
+          width: 250px;
+          padding: 0 10px;
+          border: 0 none;
+          outline: 0 none;
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      #shoppingCar {
+        float: left;
+        margin-top: 23px;
+        position: relative;
+        margin-left: 50px;
+        span {
+          float: left;
+          color: #333333;
+          font-size: 32px;
+        }
+        i{
+          position: absolute;
+          right: -5px;
+          top: -5px;
+          font-size: 12px;
+          font-style: normal;
+          float: left;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background-color: #d33a31;
+          color: #ffffff;
+          text-align: center;
+          line-height: 18px;
+        }
+      }
+      #center{
+        margin-top: 19px;
+        margin-left: 60px;
+        float: left;
+        position: relative;
+        span{
+          float: left;
+        }
+        .icon-yonghu{
+          width: 42px;
+          height: 42px;
+          text-align: center;
+          line-height: 42px;
+          color: #ffffff;
+          background-color: #e2e3e5;
+          border-radius: 50%;
+        }
+        .icon-xiajiantou{
+          line-height: 42px;
+          color: #333333;
+          margin-left: 10px;
+        }
+        div{
+          display: none;
+          float: left;
+          position: absolute;
+          left: -55px;
+          top: 55px;
+          width: 160px;
+          background-color: #ffffff;
+          box-shadow: 0 5px 20px #666;
+          z-index: 999;
+          span{
+            float: left;
+            width: 100%;
+            color: #ffffff;
+            position: absolute;
+            top: -14px;
+            height: 15px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 23px;
+            text-shadow: 0 -5px 10px #666;
+          }
+          ul{
+            float: left;
+            width: 100%;
+            li{
+              float: left;
+              padding-left: 35px;
+              line-height: 40px;
+              a{
+                color: #333333;
+              }
+            }
+          }
+        }
+      }
+      #center:hover{
+        div{
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+#banner{
+  float: left;
+  width: 100%;
+  position: relative;
+  ul{
+    float: left;
+    width: 100%;
+
+    li{
+      display: none;
+      left: 0;
+      top: 0;
+      float: left;
+      width: 100%;
+      a{
+        float: left;
+        width: 100%;
+        img{
+          float: left;
+          width: 100%;
+        }
+      }
+
+    }
+    li:first-of-type{
+      display: block;
+    }
+  }
+  #page{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    float: left;
+    width: 100%;
+    text-align: center;
+    ul{
+      float: none;
+      display: inline-block;
+      width: auto;
+      li{
+        display: block;
+        float: left;
+        width: 35px;
+        height: 7px;
+        background-color: #ffffff;
+        margin: 0 5px;
+      }
+      .page_color{
+        background-color: #da4037;
+      }
+    }
+  }
+}
+
+#nav{
+  float: left;
+  width: 100%;
+  ul{
+    width: 910px;
+    margin: 0 auto;
+    li{
+      float: left;
+      margin:22px 250px 22px 0;
+      a{
+        float: left;
+        width: 100%;
+        img{
+          float: left;
+
+        }
+        p{
+          float: left;
+          font-size: 16px;
+          line-height: 38px;
+          margin-left: 35px;
+          color: #333333;
+        }
+      }
+    }
+    li:last-of-type{
+      margin-right: 0;
+    }
+  }
+}
+
+#main{
+  float: left;
+  width: 100%;
+  background-color: #ededed;
+  padding-top: 40px;
+  ul{
+    width: 1200px;
+    margin: 0 auto;
+    li{
+      transition: all 500ms;
+      float: left;
+      width: 280px;
+      height: 390px;
+      background-color: #ffffff;
+      position: relative;
+      margin-right: 26px;
+      margin-bottom: 28px;
+     .img_div{
+       float: left;
+       img{
+         width: 280px;
+         height: 280px;
+       }
+
+     }
+      .txt_div{
+        float: left;
+        height: 110px;
+        width: 100%;
+        p{
+          float: left;
+          width: 80%;
+          padding: 0 10%;
+          text-align: center;
+          line-height: 25px;
+          color: #333333;
+          font-size: 14px;
+          margin-top: 10px;
+        }
+        b{
+          float: left;
+          width: 100%;
+          text-align: center;
+          font-size: 16px;
+          color: #d33a31;
+          margin-top: 5px;
+        }
+      }
+      .tj{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 36px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        font-size: 12px;
+        color: #ffffff;
+        background-color: #d33a31;
+      }
+    }
+    li:hover{
+      box-shadow:0 0 20px #666;
+    }
+    li:nth-of-type(4n){
+      margin-right: 0;
+    }
+  }
+}
+
+#footer{
+  float: left;
+  width: 100%;
+  background-color: #414141;
+  .footer{
+    width: 1200px;
+    margin: 0 auto;
+    .footer_top{
+      float: left;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #4f4f4f;
+      img{
+        margin-top: 33px;
+        margin-bottom: 26px;
+      }
+    }
+    .footer_bot{
+      width: 775px;
+      margin: 0 auto;
+      ul{
+        float: left;
+        width: 100%;
+        margin-top: 32px;
+        li{
+          float: left;
+          border-right: 1px solid #aaaaaa;
+          padding-right: 20px;
+          margin-left: 20px;
+          line-height: 13px;
+          a{
+            float: left;
+            color: #aaaaaa;
+            font-size: 12px;
+          }
+        }
+        li:first-of-type{
+          margin-left: 0;
+        }
+        li:last-of-type{
+          padding-right:0;
+          border: 0 none;
+        }
+      }
+      p{
+        float: left;
+        width: 100%;
+        text-align: center;
+        color: #aaaaaa;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+#auction{
+  float: left;
+  width: 100%;
+  background-color: #ededed;
+
+  .auction{
+    width: 1200px;
+    margin: 0 auto;
+    .auction_top{
+      float: left;
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid #dcdcdc;
+      background-color: #ffffff;
+      margin-top: 30px;
+      .auction_top_img{
+        float: left;
+        ul{
+          float: left;
+          width: 82px;
+          margin-left: 59px;
+          margin-top: 29px;
+          li{
+            float: left;
+border: 1px solid #f0f0f0;
+            margin-bottom: 10px;
+            width: 78px;
+            height: 78px;
+            img{
+              float: left;
+              width: 100%;
+              height: 100%;
+margin: 0;
+            }
+          }
+        }
+        img{
+          float: left;
+          margin-left: 40px;
+          width: 440px;
+        }
+      }
+      .auction_top_txt{
+        float: right;
+        margin-right: 40px;
+        .auction_top_txt_top{
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

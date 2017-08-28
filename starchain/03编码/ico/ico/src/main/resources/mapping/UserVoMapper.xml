@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.starchain.mapper.UserDao" >
+        <resultMap id="userMap" type="com.starchain.po.User">
+            <id property="userId" column="user_id"/>
+            <result property="accountMail" column="account_mail"/>
+            <result property="userAlias" column="user_alias"/>
+            <result property="accountPhone" column="account_phone"/>
+            <result property="pwd" column="pwd"/>
+            <result property="iDCardNo" column="IDCard_no"/>
+            <result property="iDCardName" column="IDCard_name"/>
+            <result property="iDCardFrontSide" column="IDCard_frontSide"/>
+            <result property="iDCardBackSide" column="IDCard_backSide"/>
+            <result property="mailValidStatus" column="mailValid_status"/>
+            <result property="phoneValidStatus" column="phoneValid_status"/>
+            <result property="iDCardValidStatus" column="IDCardValid_status"/>
+            <result property="bankCard" column="bank_card"/>
+            <result property="cashBalance" column="cash_balance"/>
+            <result property="ethBalance" column="eth_balance"/>
+            <result property="createDate" column="create_date"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateDate" column="update_date"/>
+            <result property="updateTime" column="update_time"/>
+        </resultMap>
+
+
+        <!--所有的用户信息-->
+        <sql id="user_columns">
+            user_id,account_mail,user_alias,account_phone,pwd,IDCard_no,IDCard_name,IDCard_frontSide,
+            IDCard_backSide,mailValid_status,phoneValid_status,IDCardValid_status,bank_card,cash_balance,
+            eth_balance,create_date,create_time,update_date,update_time
+        </sql>
+
+
+        <!--除了密码以外的用户信息-->
+        <sql id="user_AllInfo_except_password">
+            user_id,account_mail,user_alias,account_phone,IDCard_no,IDCard_name,IDCard_frontSide,
+            IDCard_backSide,mailValid_status,phoneValid_status,IDCardValid_status,bank_card,cash_balance,
+            eth_balance,create_date,create_time,update_date,update_time
+        </sql>
+        <!-- 定义商品查询的sql片段，就是商品查询条件 -->
+        <sql id="query_user_where">
+            <!-- 使用动态sql，通过if判断，满足条件进行sql拼接 -->
+            <!-- 商品查询条件通过ItemsQueryVo包装对象 中itemsCustom属性传递 -->
+            <if test="user!=null">
+                <if test="user.name!=null and user.name!=''">
+                    items.name LIKE '%${user.name}%'
+                </if>
+            </if>
+
+        </sql>
+
+
+        <!--注册用户-->
+        <insert id="addUser" parameterType="com.starchain.po.User" keyProperty="userId" useGeneratedKeys="true">
+            INSERT INTO ico_system_user
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="userId != null">
+                    user_id,
+                </if>
+                <if test="accountMail != null">
+                    account_mail,
+                </if>
+                <if test="accountPhone != null">
+                    account_phone,
+                </if>
+                <if test="userAlias != null">
+                    user_alias,
+                </if>
+                <if test="pwd != null">
+                    pwd
+                </if>
+            </trim>
+            <trim prefix="values(" suffix=")" suffixOverrides=",">
+                <if test="userId != null">
+                    #{userId},
+                </if>
+                <if test="accountMail != null">
+                    #{accountMail},
+                </if>
+                <if test="accountPhone != null">
+                    #{accountPhone},
+                </if>
+                <if test="userAlias != null">
+                    #{userAlias},
+                </if>
+                <if test="pwd != null">
+                    #{pwd}
+                </if>
+            </trim>
+        </insert>
+        <!-- 商品列表查询 -->
+        <!-- parameterType传入包装对象(包装了查询条件)
+            resultType建议使用扩展对象
+        -->
+        <select id="finduserlist" parameterType="com.starchain.po.User"
+                resultType="com.starchain.po.User">
+            SELECT * FROM user
+            <where>
+                <include refid="query_user_where"></include>
+            </where>
+        </select>
+
+
+        <select id="finduserbyid" parameterType="String"
+                resultType="com.starchain.po.User">
+            SELECT * FROM user
+            <where>
+                id=#{id}
+            </where>
+        </select>
+
+        <select id="findUserByUserAlias" parameterType="String"
+                resultType="com.starchain.po.User">
+            SELECT * FROM ico_system_user
+            <where>
+                user_alias=#{alias}
+            </where>
+        </select>
+    </mapper>
