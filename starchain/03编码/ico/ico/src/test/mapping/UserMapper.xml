@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.IDao.UserMapper" >
+  <resultMap id="BaseResultMap" type="test.domain.User" >
+    <id column="commodity_id" property="commodityId" jdbcType="VARCHAR" />
+    <result column="commodity_name" property="commodityName" jdbcType="VARCHAR" />
+    <result column="seller_user_id" property="sellerUserId" jdbcType="VARCHAR" />
+    <result column="commodity_price" property="commodityPrice" jdbcType="REAL" />
+    <result column="commodity_status" property="commodityStatus" jdbcType="CHAR" />
+    <result column="commodity_info" property="commodityInfo" jdbcType="VARCHAR" />
+    <result column="commodity_create_time" property="commodityCreateTime" jdbcType="CHAR" />
+    <result column="commodity_create_date" property="commodityCreateDate" jdbcType="CHAR" />
+    <result column="commodity_update_time" property="commodityUpdateTime" jdbcType="CHAR" />
+    <result column="commodity_update_date" property="commodityUpdateDate" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+  <where >
+    <foreach collection="oredCriteria" item="criteria" separator="or" >
+      <if test="criteria.valid" >
+        <trim prefix="(" suffix=")" prefixOverrides="and" >
+          <foreach collection="criteria.criteria" item="criterion" >
+            <choose >
+              <when test="criterion.noValue" >
+                and ${criterion.condition}
+              </when>
+              <when test="criterion.singleValue" >
+                and ${criterion.condition} #{criterion.value}
+              </when>
+              <when test="criterion.betweenValue" >
+                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+              </when>
+              <when test="criterion.listValue" >
+                and ${criterion.condition}
+                <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  #{listItem}
+                </foreach>
+              </when>
+            </choose>
+          </foreach>
+        </trim>
+      </if>
+    </foreach>
+  </where>
+</sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    commodity_id, commodity_name, seller_user_id, commodity_price, commodity_status, 
+    commodity_info, commodity_create_time, commodity_create_date, commodity_update_time, 
+    commodity_update_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="test.domain.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ico_mall_commodity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ico_mall_commodity
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ico_mall_commodity
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="test.domain.UserExample" >
+    delete from ico_mall_commodity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="test.domain.User" >
+    insert into ico_mall_commodity (commodity_id, commodity_name, seller_user_id, 
+      commodity_price, commodity_status, commodity_info, 
+      commodity_create_time, commodity_create_date, commodity_update_time, 
+      commodity_update_date)
+    values (#{commodityId,jdbcType=VARCHAR}, #{commodityName,jdbcType=VARCHAR}, #{sellerUserId,jdbcType=VARCHAR}, 
+      #{commodityPrice,jdbcType=REAL}, #{commodityStatus,jdbcType=CHAR}, #{commodityInfo,jdbcType=VARCHAR}, 
+      #{commodityCreateTime,jdbcType=CHAR}, #{commodityCreateDate,jdbcType=CHAR}, #{commodityUpdateTime,jdbcType=CHAR}, 
+      #{commodityUpdateDate,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.domain.User" >
+    insert into ico_mall_commodity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commodityId != null" >
+        commodity_id,
+      </if>
+      <if test="commodityName != null" >
+        commodity_name,
+      </if>
+      <if test="sellerUserId != null" >
+        seller_user_id,
+      </if>
+      <if test="commodityPrice != null" >
+        commodity_price,
+      </if>
+      <if test="commodityStatus != null" >
+        commodity_status,
+      </if>
+      <if test="commodityInfo != null" >
+        commodity_info,
+      </if>
+      <if test="commodityCreateTime != null" >
+        commodity_create_time,
+      </if>
+      <if test="commodityCreateDate != null" >
+        commodity_create_date,
+      </if>
+      <if test="commodityUpdateTime != null" >
+        commodity_update_time,
+      </if>
+      <if test="commodityUpdateDate != null" >
+        commodity_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commodityId != null" >
+        #{commodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityName != null" >
+        #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUserId != null" >
+        #{sellerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null" >
+        #{commodityPrice,jdbcType=REAL},
+      </if>
+      <if test="commodityStatus != null" >
+        #{commodityStatus,jdbcType=CHAR},
+      </if>
+      <if test="commodityInfo != null" >
+        #{commodityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCreateTime != null" >
+        #{commodityCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityCreateDate != null" >
+        #{commodityCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateTime != null" >
+        #{commodityUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateDate != null" >
+        #{commodityUpdateDate,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ico_mall_commodity
+    <set >
+      <if test="record.commodityId != null" >
+        commodity_id = #{record.commodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commodityName != null" >
+        commodity_name = #{record.commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sellerUserId != null" >
+        seller_user_id = #{record.sellerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commodityPrice != null" >
+        commodity_price = #{record.commodityPrice,jdbcType=REAL},
+      </if>
+      <if test="record.commodityStatus != null" >
+        commodity_status = #{record.commodityStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.commodityInfo != null" >
+        commodity_info = #{record.commodityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commodityCreateTime != null" >
+        commodity_create_time = #{record.commodityCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="record.commodityCreateDate != null" >
+        commodity_create_date = #{record.commodityCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="record.commodityUpdateTime != null" >
+        commodity_update_time = #{record.commodityUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="record.commodityUpdateDate != null" >
+        commodity_update_date = #{record.commodityUpdateDate,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ico_mall_commodity
+    set commodity_id = #{record.commodityId,jdbcType=VARCHAR},
+      commodity_name = #{record.commodityName,jdbcType=VARCHAR},
+      seller_user_id = #{record.sellerUserId,jdbcType=VARCHAR},
+      commodity_price = #{record.commodityPrice,jdbcType=REAL},
+      commodity_status = #{record.commodityStatus,jdbcType=CHAR},
+      commodity_info = #{record.commodityInfo,jdbcType=VARCHAR},
+      commodity_create_time = #{record.commodityCreateTime,jdbcType=CHAR},
+      commodity_create_date = #{record.commodityCreateDate,jdbcType=CHAR},
+      commodity_update_time = #{record.commodityUpdateTime,jdbcType=CHAR},
+      commodity_update_date = #{record.commodityUpdateDate,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="test.domain.User" >
+    update ico_mall_commodity
+    <set >
+      <if test="commodityName != null" >
+        commodity_name = #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUserId != null" >
+        seller_user_id = #{sellerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null" >
+        commodity_price = #{commodityPrice,jdbcType=REAL},
+      </if>
+      <if test="commodityStatus != null" >
+        commodity_status = #{commodityStatus,jdbcType=CHAR},
+      </if>
+      <if test="commodityInfo != null" >
+        commodity_info = #{commodityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCreateTime != null" >
+        commodity_create_time = #{commodityCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityCreateDate != null" >
+        commodity_create_date = #{commodityCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateTime != null" >
+        commodity_update_time = #{commodityUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateDate != null" >
+        commodity_update_date = #{commodityUpdateDate,jdbcType=CHAR},
+      </if>
+    </set>
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.domain.User" >
+    update ico_mall_commodity
+    set commodity_name = #{commodityName,jdbcType=VARCHAR},
+      seller_user_id = #{sellerUserId,jdbcType=VARCHAR},
+      commodity_price = #{commodityPrice,jdbcType=REAL},
+      commodity_status = #{commodityStatus,jdbcType=CHAR},
+      commodity_info = #{commodityInfo,jdbcType=VARCHAR},
+      commodity_create_time = #{commodityCreateTime,jdbcType=CHAR},
+      commodity_create_date = #{commodityCreateDate,jdbcType=CHAR},
+      commodity_update_time = #{commodityUpdateTime,jdbcType=CHAR},
+      commodity_update_date = #{commodityUpdateDate,jdbcType=CHAR}
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.starchain.mapper.MallCommodityMapper" >
+  <resultMap id="BaseResultMap" type="com.starchain.po.MallCommodity" >
+    <id column="commodity_id" property="commodityId" jdbcType="VARCHAR" />
+    <result column="commodity_name" property="commodityName" jdbcType="VARCHAR" />
+    <result column="seller_user_id" property="sellerUserId" jdbcType="VARCHAR" />
+    <result column="commodity_price" property="commodityPrice" jdbcType="DECIMAL" />
+    <result column="commodity_block" property="commodityBlock" jdbcType="VARCHAR" />
+    <result column="commodity_type" property="commodityType" jdbcType="VARCHAR" />
+    <result column="commodity_info" property="commodityInfo" jdbcType="VARCHAR" />
+    <result column="commodity_create_time" property="commodityCreateTime" jdbcType="CHAR" />
+    <result column="commodity_create_date" property="commodityCreateDate" jdbcType="CHAR" />
+    <result column="commodity_update_time" property="commodityUpdateTime" jdbcType="CHAR" />
+    <result column="commodity_update_date" property="commodityUpdateDate" jdbcType="CHAR" />
+    <result column="commodity_due_time" property="commodityDueTime" jdbcType="CHAR" />
+    <result column="commodity_due_date" property="commodityDueDate" jdbcType="CHAR" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List" >
+    commodity_id, commodity_name, seller_user_id, commodity_price, commodity_block, commodity_type, 
+    commodity_info, commodity_create_time, commodity_create_date, commodity_update_time, 
+    commodity_update_date, commodity_due_time, commodity_due_date
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ico_mall_commodity
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ico_mall_commodity
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.starchain.po.MallCommodity" >
+    insert into ico_mall_commodity (commodity_id, commodity_name, seller_user_id, 
+      commodity_price, commodity_block, commodity_type, 
+      commodity_info, commodity_create_time, commodity_create_date, 
+      commodity_update_time, commodity_update_date, commodity_due_time, 
+      commodity_due_date)
+    values (#{commodityId,jdbcType=VARCHAR}, #{commodityName,jdbcType=VARCHAR}, #{sellerUserId,jdbcType=VARCHAR}, 
+      #{commodityPrice,jdbcType=DECIMAL}, #{commodityBlock,jdbcType=VARCHAR}, #{commodityType,jdbcType=VARCHAR}, 
+      #{commodityInfo,jdbcType=VARCHAR}, #{commodityCreateTime,jdbcType=CHAR}, #{commodityCreateDate,jdbcType=CHAR}, 
+      #{commodityUpdateTime,jdbcType=CHAR}, #{commodityUpdateDate,jdbcType=CHAR}, #{commodityDueTime,jdbcType=CHAR}, 
+      #{commodityDueDate,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.starchain.po.MallCommodity" >
+    insert into ico_mall_commodity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commodityId != null" >
+        commodity_id,
+      </if>
+      <if test="commodityName != null" >
+        commodity_name,
+      </if>
+      <if test="sellerUserId != null" >
+        seller_user_id,
+      </if>
+      <if test="commodityPrice != null" >
+        commodity_price,
+      </if>
+      <if test="commodityBlock != null" >
+        commodity_block,
+      </if>
+      <if test="commodityType != null" >
+        commodity_type,
+      </if>
+      <if test="commodityInfo != null" >
+        commodity_info,
+      </if>
+      <if test="commodityCreateTime != null" >
+        commodity_create_time,
+      </if>
+      <if test="commodityCreateDate != null" >
+        commodity_create_date,
+      </if>
+      <if test="commodityUpdateTime != null" >
+        commodity_update_time,
+      </if>
+      <if test="commodityUpdateDate != null" >
+        commodity_update_date,
+      </if>
+      <if test="commodityDueTime != null" >
+        commodity_due_time,
+      </if>
+      <if test="commodityDueDate != null" >
+        commodity_due_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commodityId != null" >
+        #{commodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityName != null" >
+        #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUserId != null" >
+        #{sellerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null" >
+        #{commodityPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="commodityBlock != null" >
+        #{commodityBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityType != null" >
+        #{commodityType,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityInfo != null" >
+        #{commodityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCreateTime != null" >
+        #{commodityCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityCreateDate != null" >
+        #{commodityCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateTime != null" >
+        #{commodityUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateDate != null" >
+        #{commodityUpdateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityDueTime != null" >
+        #{commodityDueTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityDueDate != null" >
+        #{commodityDueDate,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.starchain.po.MallCommodity" >
+    update ico_mall_commodity
+    <set >
+      <if test="commodityName != null" >
+        commodity_name = #{commodityName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerUserId != null" >
+        seller_user_id = #{sellerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityPrice != null" >
+        commodity_price = #{commodityPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="commodityBlock != null" >
+        commodity_block = #{commodityBlock,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityType != null" >
+        commodity_type = #{commodityType,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityInfo != null" >
+        commodity_info = #{commodityInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityCreateTime != null" >
+        commodity_create_time = #{commodityCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityCreateDate != null" >
+        commodity_create_date = #{commodityCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateTime != null" >
+        commodity_update_time = #{commodityUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityUpdateDate != null" >
+        commodity_update_date = #{commodityUpdateDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityDueTime != null" >
+        commodity_due_time = #{commodityDueTime,jdbcType=CHAR},
+      </if>
+      <if test="commodityDueDate != null" >
+        commodity_due_date = #{commodityDueDate,jdbcType=CHAR},
+      </if>
+    </set>
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starchain.po.MallCommodity" >
+    update ico_mall_commodity
+    set commodity_name = #{commodityName,jdbcType=VARCHAR},
+      seller_user_id = #{sellerUserId,jdbcType=VARCHAR},
+      commodity_price = #{commodityPrice,jdbcType=DECIMAL},
+      commodity_block = #{commodityBlock,jdbcType=VARCHAR},
+      commodity_type = #{commodityType,jdbcType=VARCHAR},
+      commodity_info = #{commodityInfo,jdbcType=VARCHAR},
+      commodity_create_time = #{commodityCreateTime,jdbcType=CHAR},
+      commodity_create_date = #{commodityCreateDate,jdbcType=CHAR},
+      commodity_update_time = #{commodityUpdateTime,jdbcType=CHAR},
+      commodity_update_date = #{commodityUpdateDate,jdbcType=CHAR},
+      commodity_due_time = #{commodityDueTime,jdbcType=CHAR},
+      commodity_due_date = #{commodityDueDate,jdbcType=CHAR}
+    where commodity_id = #{commodityId,jdbcType=VARCHAR}
+  </update>
+</mapper>

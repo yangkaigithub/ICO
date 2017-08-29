@@ -1,33 +1,180 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.starchain.mapper.MallOrderDao" >
-    <resultMap id="orderMap" type="com.starchain.po.MallOrder">
-        <id property="orderId" column="order_id"/>
-        <result property="costumerId" column="costumer_id"/>
-        <result property="orderCommodityId" column="order_commodity_id"/>
-        <result property="orderCommodityCnt" column="order_commodity_cnt"/>
-        <result property="orderPrice" column="order_price"/>
-        <result property="orderStatus" column="order_status"/>
-        <result property="orderAddress" column="order_address"/>
-        <result property="orderPhone" column="order_phone"/>
-        <result property="orderCreateTime" column="order_create_time"/>
-        <result property="orderCreateDate" column="order_create_date"/>
-        <result property="orderUpdateTime" column="order_update_time"/>
-        <result property="orderUpdateDate" column="order_update_date"/>
-    </resultMap>
-
-    <!--所有的订单信息-->
-    <sql id="commodity_columns">
-        order_id,costumer_id,order_commodity_id,order_commodity_cnt,order_price,order_status,order_address,order_phone,
-        order_create_time,order_create_date,order_update_time,order_update_date
-    </sql>
+<mapper namespace="com.starchain.mapper.MallOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.starchain.po.MallOrder" >
+    <id column="order_id" property="orderId" jdbcType="VARCHAR" />
+    <result column="costumer_id" property="costumerId" jdbcType="VARCHAR" />
+    <result column="order_commodity_id" property="orderCommodityId" jdbcType="VARCHAR" />
+    <result column="order_commodity_cnt" property="orderCommodityCnt" jdbcType="INTEGER" />
+    <result column="order_price" property="orderPrice" jdbcType="DECIMAL" />
+    <result column="order_status" property="orderStatus" jdbcType="CHAR" />
+    <result column="order_address" property="orderAddress" jdbcType="VARCHAR" />
+    <result column="order_phone" property="orderPhone" jdbcType="CHAR" />
+    <result column="order_create_time" property="orderCreateTime" jdbcType="CHAR" />
+    <result column="order_create_date" property="orderCreateDate" jdbcType="CHAR" />
+    <result column="order_update_time" property="orderUpdateTime" jdbcType="CHAR" />
+    <result column="order_update_date" property="orderUpdateDate" jdbcType="CHAR" />
+  </resultMap>
 
 
-    <!--添加订单-->
-    <insert id="addOrder" parameterType="com.starchain.po.MallOrder" keyProperty="order_id" useGeneratedKeys="true">
-        INSERT INTO ico_mall_order
-        SET order_id=#{orderId},costumer_id=#{costumerId},order_commodity_id=#{orderCommodityId},order_commodity_cnt=#{orderCommodityCnt},
-        order_price=#{orderPrice},order_status=#{orderStatus},order_create_time=#{orderCreateTime},order_create_date=#{orderCreateDate}
-    </insert>
-
+  <sql id="Base_Column_List" >
+    order_id, costumer_id, order_commodity_id, order_commodity_cnt, order_price, order_status, 
+    order_address, order_phone, order_create_time, order_create_date, order_update_time, 
+    order_update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ico_mall_order
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ico_mall_order
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.starchain.po.MallOrder" >
+    insert into ico_mall_order (order_id, costumer_id, order_commodity_id, 
+      order_commodity_cnt, order_price, order_status, 
+      order_address, order_phone, order_create_time, 
+      order_create_date, order_update_time, order_update_date
+      )
+    values (#{orderId,jdbcType=VARCHAR}, #{costumerId,jdbcType=VARCHAR}, #{orderCommodityId,jdbcType=VARCHAR}, 
+      #{orderCommodityCnt,jdbcType=INTEGER}, #{orderPrice,jdbcType=DECIMAL}, #{orderStatus,jdbcType=CHAR}, 
+      #{orderAddress,jdbcType=VARCHAR}, #{orderPhone,jdbcType=CHAR}, #{orderCreateTime,jdbcType=CHAR}, 
+      #{orderCreateDate,jdbcType=CHAR}, #{orderUpdateTime,jdbcType=CHAR}, #{orderUpdateDate,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.starchain.po.MallOrder" >
+    insert into ico_mall_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="costumerId != null" >
+        costumer_id,
+      </if>
+      <if test="orderCommodityId != null" >
+        order_commodity_id,
+      </if>
+      <if test="orderCommodityCnt != null" >
+        order_commodity_cnt,
+      </if>
+      <if test="orderPrice != null" >
+        order_price,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="orderAddress != null" >
+        order_address,
+      </if>
+      <if test="orderPhone != null" >
+        order_phone,
+      </if>
+      <if test="orderCreateTime != null" >
+        order_create_time,
+      </if>
+      <if test="orderCreateDate != null" >
+        order_create_date,
+      </if>
+      <if test="orderUpdateTime != null" >
+        order_update_time,
+      </if>
+      <if test="orderUpdateDate != null" >
+        order_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="costumerId != null" >
+        #{costumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCommodityId != null" >
+        #{orderCommodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCommodityCnt != null" >
+        #{orderCommodityCnt,jdbcType=INTEGER},
+      </if>
+      <if test="orderPrice != null" >
+        #{orderPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="orderAddress != null" >
+        #{orderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPhone != null" >
+        #{orderPhone,jdbcType=CHAR},
+      </if>
+      <if test="orderCreateTime != null" >
+        #{orderCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="orderCreateDate != null" >
+        #{orderCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="orderUpdateTime != null" >
+        #{orderUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="orderUpdateDate != null" >
+        #{orderUpdateDate,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starchain.po.MallOrder" >
+    update ico_mall_order
+    <set >
+      <if test="costumerId != null" >
+        costumer_id = #{costumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCommodityId != null" >
+        order_commodity_id = #{orderCommodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCommodityCnt != null" >
+        order_commodity_cnt = #{orderCommodityCnt,jdbcType=INTEGER},
+      </if>
+      <if test="orderPrice != null" >
+        order_price = #{orderPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="orderAddress != null" >
+        order_address = #{orderAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPhone != null" >
+        order_phone = #{orderPhone,jdbcType=CHAR},
+      </if>
+      <if test="orderCreateTime != null" >
+        order_create_time = #{orderCreateTime,jdbcType=CHAR},
+      </if>
+      <if test="orderCreateDate != null" >
+        order_create_date = #{orderCreateDate,jdbcType=CHAR},
+      </if>
+      <if test="orderUpdateTime != null" >
+        order_update_time = #{orderUpdateTime,jdbcType=CHAR},
+      </if>
+      <if test="orderUpdateDate != null" >
+        order_update_date = #{orderUpdateDate,jdbcType=CHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starchain.po.MallOrder" >
+    update ico_mall_order
+    set costumer_id = #{costumerId,jdbcType=VARCHAR},
+      order_commodity_id = #{orderCommodityId,jdbcType=VARCHAR},
+      order_commodity_cnt = #{orderCommodityCnt,jdbcType=INTEGER},
+      order_price = #{orderPrice,jdbcType=DECIMAL},
+      order_status = #{orderStatus,jdbcType=CHAR},
+      order_address = #{orderAddress,jdbcType=VARCHAR},
+      order_phone = #{orderPhone,jdbcType=CHAR},
+      order_create_time = #{orderCreateTime,jdbcType=CHAR},
+      order_create_date = #{orderCreateDate,jdbcType=CHAR},
+      order_update_time = #{orderUpdateTime,jdbcType=CHAR},
+      order_update_date = #{orderUpdateDate,jdbcType=CHAR}
+    where order_id = #{orderId,jdbcType=VARCHAR}
+  </update>
 </mapper>

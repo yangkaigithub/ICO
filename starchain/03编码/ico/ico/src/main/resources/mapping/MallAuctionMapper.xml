@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.starchain.mapper.MallAuctionStateMapper" >
+  <resultMap id="BaseResultMap" type="com.starchain.po.MallAuctionState" >
+    <id column="auction_commodity_id" property="auctionCommodityId" jdbcType="VARCHAR" />
+    <id column="auction_user_id" property="auctionUserId" jdbcType="VARCHAR" />
+    <result column="auction_price" property="auctionPrice" jdbcType="DECIMAL" />
+    <result column="auction_due_date" property="auctionDueDate" jdbcType="CHAR" />
+    <result column="auction_due_time" property="auctionDueTime" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    auction_commodity_id, auction_user_id, auction_price, auction_due_date, auction_due_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.starchain.po.MallAuctionStateKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from ico_mall_auctionstate
+    where auction_commodity_id = #{auctionCommodityId,jdbcType=VARCHAR}
+      and auction_user_id = #{auctionUserId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.starchain.po.MallAuctionStateKey" >
+    delete from ico_mall_auctionstate
+    where auction_commodity_id = #{auctionCommodityId,jdbcType=VARCHAR}
+      and auction_user_id = #{auctionUserId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.starchain.po.MallAuctionState" >
+    insert into ico_mall_auctionstate (auction_commodity_id, auction_user_id, 
+      auction_price, auction_due_date, auction_due_time
+      )
+    values (#{auctionCommodityId,jdbcType=VARCHAR}, #{auctionUserId,jdbcType=VARCHAR}, 
+      #{auctionPrice,jdbcType=DECIMAL}, #{auctionDueDate,jdbcType=CHAR}, #{auctionDueTime,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.starchain.po.MallAuctionState" >
+    insert into ico_mall_auctionstate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="auctionCommodityId != null" >
+        auction_commodity_id,
+      </if>
+      <if test="auctionUserId != null" >
+        auction_user_id,
+      </if>
+      <if test="auctionPrice != null" >
+        auction_price,
+      </if>
+      <if test="auctionDueDate != null" >
+        auction_due_date,
+      </if>
+      <if test="auctionDueTime != null" >
+        auction_due_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="auctionCommodityId != null" >
+        #{auctionCommodityId,jdbcType=VARCHAR},
+      </if>
+      <if test="auctionUserId != null" >
+        #{auctionUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="auctionPrice != null" >
+        #{auctionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="auctionDueDate != null" >
+        #{auctionDueDate,jdbcType=CHAR},
+      </if>
+      <if test="auctionDueTime != null" >
+        #{auctionDueTime,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.starchain.po.MallAuctionState" >
+    update ico_mall_auctionstate
+    <set >
+      <if test="auctionPrice != null" >
+        auction_price = #{auctionPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="auctionDueDate != null" >
+        auction_due_date = #{auctionDueDate,jdbcType=CHAR},
+      </if>
+      <if test="auctionDueTime != null" >
+        auction_due_time = #{auctionDueTime,jdbcType=CHAR},
+      </if>
+    </set>
+    where auction_commodity_id = #{auctionCommodityId,jdbcType=VARCHAR}
+      and auction_user_id = #{auctionUserId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.starchain.po.MallAuctionState" >
+    update ico_mall_auctionstate
+    set auction_price = #{auctionPrice,jdbcType=DECIMAL},
+      auction_due_date = #{auctionDueDate,jdbcType=CHAR},
+      auction_due_time = #{auctionDueTime,jdbcType=CHAR}
+    where auction_commodity_id = #{auctionCommodityId,jdbcType=VARCHAR}
+      and auction_user_id = #{auctionUserId,jdbcType=VARCHAR}
+  </update>
+</mapper>

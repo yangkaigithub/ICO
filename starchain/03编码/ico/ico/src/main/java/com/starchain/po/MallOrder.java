@@ -1,43 +1,38 @@
 package com.starchain.po;
 
-public class MallOrder {
-    String orderId;
-    String costumerId;
-    String orderCommodityId;
-    int orderCommodityCnt;
-    Float orderPrice;
-    String orderStatus;
-    String orderAddress;
-    String orderPhone;
-    String orderCreateTime;
-    String orderCreateDate;
-    String orderUpdateTime;
-    String orderUpdateDate;
+import java.math.BigDecimal;
 
-    @Override
-    public String toString() {
-        return "MallOrder{" +
-                "orderId='" + orderId + '\'' +
-                ", costumerId='" + costumerId + '\'' +
-                ", orderCommodityId='" + orderCommodityId + '\'' +
-                ", orderCommodityCnt='" + orderCommodityCnt + '\'' +
-                ", orderPrice=" + orderPrice +
-                ", orderStatus='" + orderStatus + '\'' +
-                ", orderAddress='" + orderAddress + '\'' +
-                ", orderPhone='" + orderPhone + '\'' +
-                ", orderCreateTime='" + orderCreateTime + '\'' +
-                ", orderCreateDate='" + orderCreateDate + '\'' +
-                ", orderUpdateTime='" + orderUpdateTime + '\'' +
-                ", orderUpdateDate='" + orderUpdateDate + '\'' +
-                '}';
-    }
+public class MallOrder {
+    private String orderId;
+
+    private String costumerId;
+
+    private String orderCommodityId;
+
+    private Integer orderCommodityCnt;
+
+    private BigDecimal orderPrice;
+
+    private String orderStatus;
+
+    private String orderAddress;
+
+    private String orderPhone;
+
+    private String orderCreateTime;
+
+    private String orderCreateDate;
+
+    private String orderUpdateTime;
+
+    private String orderUpdateDate;
 
     public String getOrderId() {
         return orderId;
     }
 
     public void setOrderId(String orderId) {
-        this.orderId = orderId;
+        this.orderId = orderId == null ? null : orderId.trim();
     }
 
     public String getCostumerId() {
@@ -45,7 +40,7 @@ public class MallOrder {
     }
 
     public void setCostumerId(String costumerId) {
-        this.costumerId = costumerId;
+        this.costumerId = costumerId == null ? null : costumerId.trim();
     }
 
     public String getOrderCommodityId() {
@@ -53,22 +48,22 @@ public class MallOrder {
     }
 
     public void setOrderCommodityId(String orderCommodityId) {
-        this.orderCommodityId = orderCommodityId;
+        this.orderCommodityId = orderCommodityId == null ? null : orderCommodityId.trim();
     }
 
-    public int getOrderCommodityCnt() {
+    public Integer getOrderCommodityCnt() {
         return orderCommodityCnt;
     }
 
-    public void setOrderCommodityCnt(int orderCommodityCnt) {
+    public void setOrderCommodityCnt(Integer orderCommodityCnt) {
         this.orderCommodityCnt = orderCommodityCnt;
     }
 
-    public Float getOrderPrice() {
+    public BigDecimal getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(Float orderPrice) {
+    public void setOrderPrice(BigDecimal orderPrice) {
         this.orderPrice = orderPrice;
     }
 
@@ -77,7 +72,7 @@ public class MallOrder {
     }
 
     public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+        this.orderStatus = orderStatus == null ? null : orderStatus.trim();
     }
 
     public String getOrderAddress() {
@@ -85,7 +80,7 @@ public class MallOrder {
     }
 
     public void setOrderAddress(String orderAddress) {
-        this.orderAddress = orderAddress;
+        this.orderAddress = orderAddress == null ? null : orderAddress.trim();
     }
 
     public String getOrderPhone() {
@@ -93,7 +88,7 @@ public class MallOrder {
     }
 
     public void setOrderPhone(String orderPhone) {
-        this.orderPhone = orderPhone;
+        this.orderPhone = orderPhone == null ? null : orderPhone.trim();
     }
 
     public String getOrderCreateTime() {
@@ -101,7 +96,7 @@ public class MallOrder {
     }
 
     public void setOrderCreateTime(String orderCreateTime) {
-        this.orderCreateTime = orderCreateTime;
+        this.orderCreateTime = orderCreateTime == null ? null : orderCreateTime.trim();
     }
 
     public String getOrderCreateDate() {
@@ -109,7 +104,7 @@ public class MallOrder {
     }
 
     public void setOrderCreateDate(String orderCreateDate) {
-        this.orderCreateDate = orderCreateDate;
+        this.orderCreateDate = orderCreateDate == null ? null : orderCreateDate.trim();
     }
 
     public String getOrderUpdateTime() {
@@ -117,7 +112,7 @@ public class MallOrder {
     }
 
     public void setOrderUpdateTime(String orderUpdateTime) {
-        this.orderUpdateTime = orderUpdateTime;
+        this.orderUpdateTime = orderUpdateTime == null ? null : orderUpdateTime.trim();
     }
 
     public String getOrderUpdateDate() {
@@ -125,6 +120,6 @@ public class MallOrder {
     }
 
     public void setOrderUpdateDate(String orderUpdateDate) {
-        this.orderUpdateDate = orderUpdateDate;
+        this.orderUpdateDate = orderUpdateDate == null ? null : orderUpdateDate.trim();
     }
 }

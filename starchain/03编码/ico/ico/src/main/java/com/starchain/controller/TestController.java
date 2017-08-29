@@ -1,8 +1,10 @@
 package com.starchain.controller;
 
 
+import com.starchain.po.MallAuctionState;
 import com.starchain.po.MallCommodity;
 import com.starchain.po.MallOrder;
+import com.starchain.service.MallAuctionStateService;
 import com.starchain.service.MallCommodityService;
 import com.starchain.service.MallOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class TestController {
     @Autowired
     private MallOrderService mallOrderService;
 
+    @Autowired
+    private MallAuctionStateService mallAuctionStateService;
+
 
     @RequestMapping(value = "/addCommodity")
     public @ResponseBody String addCommodity(){
@@ -36,7 +41,11 @@ public class TestController {
         return "success";
     }
 
-
+    @RequestMapping(value = "/addAuction")
+    public @ResponseBody String addAuction(){
+        mallAuctionStateService.addAucionState(new MallAuctionState());
+        return "success";
+    }
     @RequestMapping(value="/tomall")
     public String tomall(){
         return "/mall";

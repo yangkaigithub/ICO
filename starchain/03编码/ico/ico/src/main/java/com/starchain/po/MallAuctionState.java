@@ -1,36 +1,20 @@
 package com.starchain.po;
 
-public class MallAuctionState {
+import java.math.BigDecimal;
 
-    private String auctionUserId;
-    private String auctionCommodityId;
+public class MallAuctionState extends MallAuctionStateKey {
+    private BigDecimal auctionPrice;
+
     private String auctionDueDate;
+
     private String auctionDueTime;
 
-    @Override
-    public String toString() {
-        return "MallAuctionState{" +
-                "auctionUserId='" + auctionUserId + '\'' +
-                ", auctionCommodityId='" + auctionCommodityId + '\'' +
-                ", auctionDueDate='" + auctionDueDate + '\'' +
-                ", auctionDueTime='" + auctionDueTime + '\'' +
-                '}';
+    public BigDecimal getAuctionPrice() {
+        return auctionPrice;
     }
 
-    public String getAuctionUserId() {
-        return auctionUserId;
-    }
-
-    public void setAuctionUserId(String auctionUserId) {
-        this.auctionUserId = auctionUserId;
-    }
-
-    public String getAuctionCommodityId() {
-        return auctionCommodityId;
-    }
-
-    public void setAuctionCommodityId(String auctionCommodityId) {
-        this.auctionCommodityId = auctionCommodityId;
+    public void setAuctionPrice(BigDecimal auctionPrice) {
+        this.auctionPrice = auctionPrice;
     }
 
     public String getAuctionDueDate() {
@@ -38,7 +22,7 @@ public class MallAuctionState {
     }
 
     public void setAuctionDueDate(String auctionDueDate) {
-        this.auctionDueDate = auctionDueDate;
+        this.auctionDueDate = auctionDueDate == null ? null : auctionDueDate.trim();
     }
 
     public String getAuctionDueTime() {
@@ -46,6 +30,6 @@ public class MallAuctionState {
     }
 
     public void setAuctionDueTime(String auctionDueTime) {
-        this.auctionDueTime = auctionDueTime;
+        this.auctionDueTime = auctionDueTime == null ? null : auctionDueTime.trim();
     }
 }
