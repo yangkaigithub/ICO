@@ -1,6 +1,5 @@
 <%@page pageEncoding="utf-8" %>
 <%@include file="/header.jsp"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

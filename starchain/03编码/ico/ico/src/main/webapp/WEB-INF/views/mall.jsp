@@ -1,25 +1,24 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017/8/21
-  Time: 20:38
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page pageEncoding="utf-8" %>
+<%@include file="/header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <base href="<%=basePath%>">
+    <title>星链</title>
+    <meta name="description" content="Star Chain">
+    <%@include file="/header.html"%>
+
     <title>Title</title>
-    <link rel="stylesheet" href="/resource/css/mall.css">
-    <link rel="stylesheet" href="/resource/font/iconfont.css">
-    <script src="/resource/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="resource/css/mall.css">
+    <link rel="stylesheet" href="resource/font/iconfont.css">
+    <script src="resource/js/jquery-3.2.1.min.js"></script>
+
 </head>
 <body>
 <div id="header">
     <div class="header">
         <div id="logo">
-            <img src="/resource/img/logo_head2.png" alt="">
+            <img src="resource/img/logo_head2.png" alt="">
             <h1>链贤艺人商城</h1>
         </div>
 
@@ -52,9 +51,9 @@
 </div>
 <div id="banner">
     <ul id="banner_img">
-        <li><a href=""><img src="/resource/img/shop_banner.jpg" alt=""></a></li>
-        <li><a href=""><img src="/resource/img/shop_banner.jpg" alt=""></a></li>
-        <li><a href=""><img src="/resource/img/shop_banner.jpg" alt=""></a></li>
+        <li><a href=""><img src="resource/img/shop_banner.jpg" alt=""></a></li>
+        <li><a href=""><img src="resource/img/shop_banner.jpg" alt=""></a></li>
+        <li><a href=""><img src="resource/img/shop_banner.jpg" alt=""></a></li>
     </ul>
     <div id="page">
         <ul>
@@ -67,11 +66,11 @@
 </div>
 <div id="nav">
     <ul>
-        <li><a href=""><img src="/resource/img/gwzb.png" alt="">
+        <li><a href=""><img src="resource/img/gwzb.png" alt="">
             <p>艺人周边</p></a></li>
-        <li><a href=""><img src="/resource/img/yryy.png" alt="">
+        <li><a href=""><img src="resource/img/yryy.png" alt="">
             <p>艺人影音</p></a></li>
-        <li><a href=""><img src="/resource/img/yrbh.png" alt="">
+        <li><a href=""><img src="resource/img/yrbh.png" alt="">
             <p>艺人百货</p></a></li>
     </ul>
 </div>
@@ -80,7 +79,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -94,7 +93,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -108,7 +107,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -122,7 +121,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -136,7 +135,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -150,7 +149,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -164,7 +163,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -178,7 +177,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -192,7 +191,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -206,7 +205,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -219,7 +218,7 @@
         </li><li>
         <a href="">
             <div class="img_div">
-                <img src="/resource/img/sp.jpg" alt="">
+                <img src="resource/img/sp.jpg" alt="">
             </div>
             <div class="txt_div">
                 <p>
@@ -233,7 +232,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -247,7 +246,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -261,7 +260,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -275,7 +274,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -289,7 +288,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -303,7 +302,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -317,7 +316,7 @@
         <li>
             <a href="">
                 <div class="img_div">
-                    <img src="/resource/img/sp.jpg" alt="">
+                    <img src="resource/img/sp.jpg" alt="">
                 </div>
                 <div class="txt_div">
                     <p>
@@ -334,7 +333,7 @@
 <div id="footer">
     <div class="footer">
         <div class="footer_top">
-            <img src="/resource/img/foot.png" alt="">
+            <img src="resource/img/foot.png" alt="">
         </div>
         <div class="footer_bot">
             <ul>
@@ -353,5 +352,5 @@
     </div>
 </div>
 </body>
-<script src="/resource/js/mall.js"></script>
+<script src="resource/js/mall.js"></script>
 </html>

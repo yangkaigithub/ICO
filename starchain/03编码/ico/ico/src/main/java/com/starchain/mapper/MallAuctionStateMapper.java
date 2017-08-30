@@ -8,15 +8,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MallAuctionStateMapper {
 
-    int deleteByPrimaryKey(MallAuctionStateKey key);
+    int deleteByPrimaryKey(MallAuctionStateKey key) throws Exception;
 
-    int insert(MallAuctionState record);
+    int insert(MallAuctionState record) throws Exception;
 
-    int insertSelective(MallAuctionState record);
+    int insertSelective(MallAuctionState record) throws Exception;
 
-    MallAuctionState selectByPrimaryKey(MallAuctionStateKey key);
+    MallAuctionState selectByPrimaryKey(MallAuctionStateKey key) throws Exception;
 
-    int updateByPrimaryKeySelective(MallAuctionState record);
+    int updateByPrimaryKeySelective(MallAuctionState record) throws Exception;
 
-    int updateByPrimaryKey(MallAuctionState record);
+    int updateByPrimaryKey(MallAuctionState record) throws Exception;
 }

@@ -23,6 +23,6 @@ public class MallOrderServiceImpl implements MallOrderService {
         mallOrder.setOrderCreateDate("20170821");
         mallOrder.setOrderCreateTime("211423123");
         mallOrder.setOrderStatus("001");
-        mallOrderMapper.insert(mallOrder);
+        mallOrderMapper.insertSelective(mallOrder);
     }
 }

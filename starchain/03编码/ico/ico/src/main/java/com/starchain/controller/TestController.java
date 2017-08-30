@@ -8,12 +8,16 @@ import com.starchain.service.MallAuctionStateService;
 import com.starchain.service.MallCommodityService;
 import com.starchain.service.MallOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/test")
@@ -26,6 +30,8 @@ public class TestController {
 
     @Autowired
     private MallAuctionStateService mallAuctionStateService;
+
+
 
 
     @RequestMapping(value = "/addCommodity")
@@ -46,9 +52,20 @@ public class TestController {
         mallAuctionStateService.addAucionState(new MallAuctionState());
         return "success";
     }
+
+
     @RequestMapping(value="/tomall")
     public String tomall(){
         return "/mall";
+    }
+
+    @RequestMapping("/auction")
+    public @ResponseBody String auction(){
+        Calendar calendar=Calendar.getInstance();
+        calendar.set(2017, Calendar.AUGUST, 30, 16, 50);
+//        LocalDateTime localDateTime =  LocalDateTime.of(2017, 8, 30, 16, 40);
+        mallAuctionStateService.startAuction(calendar.getTime());
+        return "success";
     }
 
 }
