@@ -15,13 +15,16 @@
     <result column="commodity_update_date" property="commodityUpdateDate" jdbcType="CHAR" />
     <result column="commodity_due_time" property="commodityDueTime" jdbcType="CHAR" />
     <result column="commodity_due_date" property="commodityDueDate" jdbcType="CHAR" />
+    <result column="commodity_remain" property="commodityRemain" jdbcType="INTEGER" />
+    <result column="commodity_picture" property="commodityPicture" jdbcType="VARCHAR" />
+    <result column="commodity_info_specific" property="commodityInfoSpecific" jdbcType="VARCHAR" />
   </resultMap>
 
 
   <sql id="Base_Column_List" >
     commodity_id, commodity_name, seller_user_id, commodity_price, commodity_block, commodity_type, 
     commodity_info, commodity_create_time, commodity_create_date, commodity_update_time, 
-    commodity_update_date, commodity_due_time, commodity_due_date
+    commodity_update_date, commodity_due_time, commodity_due_date,commodity_remain,commodity_picture,commodity_info_specific
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -39,12 +42,12 @@
     insert into ico_mall_commodity (commodity_id, commodity_name, seller_user_id, 
       commodity_price, commodity_block, commodity_type, 
       commodity_info, commodity_create_time, commodity_create_date, 
-      commodity_update_time, commodity_update_date, commodity_due_time, 
+      commodity_update_time, commodity_update_date, commodity_due_time, commodity_remain,commodity_picture,commodity_info_specific,
       commodity_due_date)
     values (#{commodityId,jdbcType=VARCHAR}, #{commodityName,jdbcType=VARCHAR}, #{sellerUserId,jdbcType=VARCHAR}, 
       #{commodityPrice,jdbcType=DECIMAL}, #{commodityBlock,jdbcType=VARCHAR}, #{commodityType,jdbcType=VARCHAR}, 
       #{commodityInfo,jdbcType=VARCHAR}, #{commodityCreateTime,jdbcType=CHAR}, #{commodityCreateDate,jdbcType=CHAR}, 
-      #{commodityUpdateTime,jdbcType=CHAR}, #{commodityUpdateDate,jdbcType=CHAR}, #{commodityDueTime,jdbcType=CHAR}, 
+      #{commodityUpdateTime,jdbcType=CHAR}, #{commodityUpdateDate,jdbcType=CHAR}, #{commodityDueTime,jdbcType=CHAR}, #{commodityRemain},#{commodityPicture},#{commodityInfoSpecific},
       #{commodityDueDate,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.starchain.po.MallCommodity" >
@@ -89,6 +92,15 @@
       <if test="commodityDueDate != null" >
         commodity_due_date,
       </if>
+      <if test="commodityRemain != null" >
+        commodity_remain,
+      </if>
+      <if test="commodityRemain != null" >
+        commodity_picture,
+      </if>
+      <if test="commodityRemain != null" >
+        commodity_info_specific,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="commodityId != null" >
@@ -129,6 +141,21 @@
       </if>
       <if test="commodityDueDate != null" >
         #{commodityDueDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityRemain != null" >
+        #{commodityRemain,jdbcType=INTEGER},
+      </if>
+      <if test="commodityDueDate != null" >
+        #{commodityDueDate,jdbcType=CHAR},
+      </if>
+      <if test="commodityRemain != null" >
+        #{commodityRemain,jdbcType=INTEGER},
+      </if>
+      <if test="commodityPicture != null" >
+        #{commodityPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityInfoSpecific != null" >
+        #{commodityInfoSpecific,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -173,6 +200,15 @@
       <if test="commodityDueDate != null" >
         commodity_due_date = #{commodityDueDate,jdbcType=CHAR},
       </if>
+      <if test="commodityRemain != null" >
+        commodity_remain = #{commodityRemain,jdbcType=INTEGER},
+      </if>
+      <if test="commodityPicture != null" >
+        commodity_picture = #{commodityPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="commodityInfoSpecific != null" >
+        commodity_info_specific = #{commodityInfoSpecific,jdbcType=VARCHAR}
+      </if>
     </set>
     where commodity_id = #{commodityId,jdbcType=VARCHAR}
   </update>
@@ -189,7 +225,10 @@
       commodity_update_time = #{commodityUpdateTime,jdbcType=CHAR},
       commodity_update_date = #{commodityUpdateDate,jdbcType=CHAR},
       commodity_due_time = #{commodityDueTime,jdbcType=CHAR},
-      commodity_due_date = #{commodityDueDate,jdbcType=CHAR}
+      commodity_due_date = #{commodityDueDate,jdbcType=CHAR},
+      commodity_remain = #{commodityRemain,jdbcType=INTEGER},
+      commodity_picture = #{commodityPicture,jdbcType=VARCHAR},
+      commodity_info_specific = #{commodityInfoSpecific,jdbcType=VARCHAR}
     where commodity_id = #{commodityId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -81,7 +81,7 @@
 
 
 //idnex_main1 page
-    var mx = $("#index_main1").find(".index_main1_main").find(".mx")
+    var mx = $(".index_main1_main").find(".mx")
     mx.find(".imgAndVideo_img").find("li").each(function () {
         mx.find(".imgAndVideo_page").append("<li></li>")
     })
@@ -90,19 +90,16 @@
     var index_main1_i = 0;
     var next_l;
 
-
-    var index_main1_time = setInterval(function () {
+     setInterval(function () {
         index_main1_i++;
         idnex_main1_run()
 
     }, 5000)
 
-
     $(".imgAndVideo_page").find("li").on("mouseover", function () {
         index_main1_i = $(this).index()
         idnex_main1_run()
     });
-
 
     function idnex_main1_run() {
         if (index_main1_i >= mx.find(".imgAndVideo_img").find("li").length) {
@@ -155,12 +152,12 @@
     $("#login_left").children("div").find("h1").animate({"left": 0, "opacity": 1}, 1000)
     $("#login_left").children("div").find("p").animate({"right": 0, "opacity": 1}, 1000)
 
-    $("form").find("div").find("input").focus(function () {
-        $(this).parent().css("border", "1px solid #31AFEA")
-    })
-    $("form").find("div").find("input").blur(function () {
-        $(this).parent().css("border", "1px solid #ccc")
-    })
+    // $("form").find("div").find("input").focus(function () {
+    //     $(this).parent().css("border", "1px solid #31AFEA")
+    // })
+    // $("form").find("div").find("input").blur(function () {
+    //     $(this).parent().css("border", "1px solid #ccc")
+    // })
 
 
     $(".tck").find("p").find("input").focus(function () {
@@ -303,6 +300,23 @@
         $(".tck_yhk").find("input[type=reset]").click()
         $(".tck_yhk").show()
     })
+
+    $("#member2").find(".member2_ul1").find("li").find(".cz").click(function (e) {
+        e.preventDefault();
+            $(".tck_cz").find("input[type=reset]").click()
+            $(".tck_cz").show()
+    })
+    $("#member2").find(".member2_ul1").find("li").find(".tx").click(function (e) {
+        e.preventDefault();
+        if (tck==1){
+            $(".tck_cz2").find("input[type=reset]").click()
+            $(".tck_cz2").show()
+        }
+        if (tck==2){
+            $(".tck_tx").find("input[type=reset]").click()
+            $(".tck_tx").show()
+        }
+    })
     $(".icon-close").click(function () {
         $(this).parents(".tck_bg").hide()
     })
@@ -342,6 +356,8 @@
         $("#ico_product").find(".ico_product").children("ul").children("li").removeClass("xxpl_main_li")
         $(this).addClass("xxpl_main_li")
     });
+
+
 
 
 })()

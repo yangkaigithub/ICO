@@ -29,6 +29,38 @@ public class MallCommodity {
 
     private String commodityDueDate;
 
+    private int commodityRemain;
+
+    private String commodityPicture;
+
+    private String commodityInfoSpecific;
+
+    public String getCommodityPicture() {
+        return commodityPicture;
+    }
+
+    public void setCommodityPicture(String commodityPicture) {
+        this.commodityPicture = commodityPicture;
+    }
+
+    public String getCommodityInfoSpecific() {
+        return commodityInfoSpecific;
+    }
+
+    public void setCommodityInfoSpecific(String commodityInfoSpecific) {
+        this.commodityInfoSpecific = commodityInfoSpecific;
+    }
+
+
+    public int getCommodityRemain() {
+        return commodityRemain;
+    }
+
+    public void setCommodityRemain(int commodityRemain) {
+        this.commodityRemain = commodityRemain;
+    }
+
+
     public String getCommodityId() {
         return commodityId;
     }

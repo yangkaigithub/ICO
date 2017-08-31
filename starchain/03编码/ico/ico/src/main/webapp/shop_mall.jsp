@@ -8,11 +8,9 @@
     <meta name="description" content="Star Chain">
     <%@include file="/header.html"%>
 
-    <title>Title</title>
     <link rel="stylesheet" href="resource/css/mall.css">
     <link rel="stylesheet" href="resource/font/iconfont.css">
     <script src="resource/js/jquery-3.2.1.min.js"></script>
-
 </head>
 <body>
 <div id="header">
@@ -75,9 +73,9 @@
     </ul>
 </div>
 <div id="main">
-    <ul>
+    <ul class="mall">
         <li>
-            <a href="">
+            <a href="/mall/toCommodity">
                 <div class="img_div">
                     <img src="resource/img/sp.jpg" alt="">
                 </div>

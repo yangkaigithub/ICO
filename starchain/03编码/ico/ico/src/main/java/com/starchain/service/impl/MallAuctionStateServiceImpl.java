@@ -46,6 +46,7 @@ public class MallAuctionStateServiceImpl implements MallAuctionStateService {
 
         //写死的竞拍属性
         mallAuctionState.setAuctionPrice(new BigDecimal(100));
+        mallAuctionState.setAuctionId(Mallutil.getRandomString(10));
         mallAuctionState.setAuctionUserId(Mallutil.getRandomString(10));
         mallAuctionState.setAuctionCommodityId(Mallutil.getRandomString(10));
         mallAuctionState.setAuctionDueTime(new SimpleDateFormat("HHmmssSSS").format(duedate));
@@ -68,11 +69,12 @@ public class MallAuctionStateServiceImpl implements MallAuctionStateService {
                     Thread.sleep(duration);
 
                     //创建订单，订单属性暂时写死
+                    MallAuctionState mallAuctionStateDue = mallAuctionStateMapper.selectByPrimaryKey(mallAuctionState.getAuctionId());
                     MallOrder mallOrder = new MallOrder();
-                    mallOrder.setCostumerId(mallAuctionState.getAuctionUserId());
+                    mallOrder.setCostumerId(mallAuctionStateDue.getAuctionUserId());
                     mallOrder.setOrderCommodityCnt(1);
-                    mallOrder.setOrderCommodityId(mallAuctionState.getAuctionCommodityId());
-                    mallOrder.setOrderPrice(mallAuctionState.getAuctionPrice());
+                    mallOrder.setOrderCommodityId(mallAuctionStateDue.getAuctionCommodityId());
+                    mallOrder.setOrderPrice(mallAuctionStateDue.getAuctionPrice());
                     mallOrder.setOrderCreateDate(Mallutil.getNowDate());
                     mallOrder.setOrderCreateTime(Mallutil.getNowTime());
                     mallOrder.setOrderStatus("001");

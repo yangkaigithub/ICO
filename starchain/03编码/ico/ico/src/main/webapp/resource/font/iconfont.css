@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1502870967578'); /* IE9*/
-  src: url('iconfont.eot?t=1502870967578#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1502870967578') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1502870967578') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1502870967578#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1503295477958'); /* IE9*/
+  src: url('iconfont.eot?t=1503295477958#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1503295477958') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1503295477958') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1503295477958#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -18,6 +18,8 @@
 .icon-gouwuchekong:before { content: "\e605"; }
 
 .icon-roundcheckfill:before { content: "\e656"; }
+
+.icon-tixing:before { content: "\e607"; }
 
 .icon-shijain:before { content: "\e66a"; }
 

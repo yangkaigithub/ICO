@@ -25,6 +25,6 @@ public class MallCommodityServiceImpl implements MallCommodityService {
         mallCommodity.setCommodityCreateDate(Mallutil.getNowDate());
         mallCommodity.setSellerUserId("gdfsfwfs342453132343");
 
-        mallCommodityMapper.insert(mallCommodity);
+        mallCommodityMapper.insertSelective(mallCommodity);
     }
 }

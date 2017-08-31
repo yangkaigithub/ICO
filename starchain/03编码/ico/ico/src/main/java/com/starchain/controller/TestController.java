@@ -56,13 +56,13 @@ public class TestController {
 
     @RequestMapping(value="/tomall")
     public String tomall(){
-        return "/mall";
+        return "/shop_mall";
     }
 
     @RequestMapping("/auction")
     public @ResponseBody String auction(){
         Calendar calendar=Calendar.getInstance();
-        calendar.set(2017, Calendar.AUGUST, 30, 16, 50);
+        calendar.set(2017, Calendar.AUGUST, 30, 21, 55);
 //        LocalDateTime localDateTime =  LocalDateTime.of(2017, 8, 30, 16, 40);
         mallAuctionStateService.startAuction(calendar.getTime());
         return "success";

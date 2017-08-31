@@ -2,21 +2,18 @@ package com.starchain.mapper;
 
 
 import com.starchain.po.MallAuctionState;
-import com.starchain.po.MallAuctionStateKey;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface MallAuctionStateMapper {
 
-    int deleteByPrimaryKey(MallAuctionStateKey key) throws Exception;
+    int deleteByPrimaryKey(String auctionId);
 
-    int insert(MallAuctionState record) throws Exception;
+    int insert(MallAuctionState record);
 
-    int insertSelective(MallAuctionState record) throws Exception;
+    int insertSelective(MallAuctionState record);
 
-    MallAuctionState selectByPrimaryKey(MallAuctionStateKey key) throws Exception;
+    MallAuctionState selectByPrimaryKey(String auctionId);
 
-    int updateByPrimaryKeySelective(MallAuctionState record) throws Exception;
+    int updateByPrimaryKeySelective(MallAuctionState record);
 
-    int updateByPrimaryKey(MallAuctionState record) throws Exception;
+    int updateByPrimaryKey(MallAuctionState record);
 }

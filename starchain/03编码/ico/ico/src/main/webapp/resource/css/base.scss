@@ -14,7 +14,7 @@ html, body {
 #header {
   width: 100%;
   float: left;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   position: fixed;
   left: 0;
   top: 0;
@@ -744,6 +744,7 @@ html, body {
   font-size: 24px;
 }
 
+
 .tck_bg {
   display: none;
   position: fixed;
@@ -792,6 +793,10 @@ html, body {
       form {
         width: 400px;
         margin: 24px auto 0;
+        >div{
+          float: left;
+          position: relative;
+        }
         input {
           float: left;
           width: 374px;
@@ -933,7 +938,7 @@ html, body {
         input[type=submit]:hover,input[type=button]:hover{
           cursor: pointer;
         }
-        div{
+        >div{
           float: left;
           width: 100%;
           position: relative;
@@ -1021,6 +1026,14 @@ html, body {
             max-height: 120px;
           }
         }
+        select{
+          float: left;
+          width: 100%;
+          padding: 0 12px;
+          border: 1px solid #cccccc;
+          height: 38px;
+          margin-bottom: 20px;
+        }
       }
 
       form {
@@ -1075,7 +1088,7 @@ html, body {
         input[type=submit]:hover,input[type=button]:hover{
           cursor: pointer;
         }
-        div{
+        >div{
           float: left;
           width: 100%;
           position: relative;
@@ -1116,7 +1129,7 @@ html, body {
     bottom: 0;
     margin: auto;
     width: 470px;
-    height: 720px;
+    height: 660px;
     z-index: 999;
     background-color: #ffffff;
     .tck_head {
@@ -1175,6 +1188,33 @@ html, body {
           border: 1px solid #cccccc;
           height: 38px;
           margin-bottom: 20px;
+          color: #666666;
+        }
+        select{
+          float: left;
+          width: 100%;
+          padding: 0 12px;
+          border: 1px solid #cccccc;
+          height: 40px;
+          margin-bottom: 20px;
+          color: #666666;
+        }
+        #city_1{
+          float: left;
+          width: 100%;
+          margin-bottom: 0;
+          select{
+            float: left;
+            width: 48%;
+            height: 38px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            padding: 0 12px;
+            color: #666666;
+          }
+          select:nth-of-type(2){
+            float: right;
+          }
         }
         input[type=file]{
           border:0 none;
@@ -1291,12 +1331,13 @@ html, body {
         margin:0 auto;
         p{
           float: left;
-          width: 100%;
+          width: auto;
           //font-size: 14px;
           color: #333333;
           margin-top: 10px;
           margin-bottom: 10px;
           font-size: 16px;
+          margin-left: 12px;
           span{
             float: left;
             margin-right: 50px;
@@ -1309,7 +1350,16 @@ html, body {
           b{
             color: #32b0ea;
           }
+          select{
+            height: 40px;
+            width: 210px;
+            margin-left: 15px;
+            border: 1px solid #cccccc;
+          }
 
+        }
+        p:first-of-type{
+          margin-top: 30px;
         }
         div{
           float: left;
@@ -1324,12 +1374,21 @@ html, body {
       form {
         width: 400px;
         margin: 24px auto 0;
-        p{
-          float: left;
+        .tsje{
+          margin-bottom: 0;
+          margin-top: 5px;
           width: auto;
-          line-height: 40px;
-          margin-right: 15px;
+          margin-left: 12px;
+          p{
+            float: left;
+            width: auto;
+            line-height: 40px;
+            margin: 0;
+            margin-right: 15px;
+            font-weight: normal;
+          }
         }
+
         #tix{
           width: 118px;
           height: 38px;
@@ -1348,7 +1407,10 @@ html, body {
           padding: 0 12px;
           border: 1px solid #cccccc;
           height: 38px;
-          margin-bottom: 20px;
+          margin-bottom: 15px;
+        }
+        #tix_dx{
+          margin-bottom: 10px;
         }
         input[type=file]{
           border:0 none;
@@ -1405,6 +1467,9 @@ html, body {
             color: #333333;
             font-weight: bold;
             line-height: normal;
+          }
+          p:first-of-type{
+            margin-top: 0;
           }
           i{
             float: left;
@@ -1584,5 +1649,193 @@ html, body {
       }
 
     }
+    .icon-close:hover{
+      cursor: pointer;
+    }
   }
+  #tck_cz2{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 470px;
+    height: 400px;
+    z-index: 999;
+    background-color: #ffffff;
+    .tck_head {
+      float: left;
+      width: 100%;
+      background-color: #0088cc;
+      h1 {
+        float: left;
+        margin-left: 22px;
+        color: #ffffff;
+        line-height: 56px;
+        font-size: 22px;
+      }
+      span {
+        float: right;
+        color: #ffffff;
+        line-height: 56px;
+        margin-right: 20px;
+        font-size: 18px;
+      }
+      span:hover {
+        cursor: pointer;
+      }
+    }
+    .tck_bot {
+      float: left;
+      width: 100%;
+      div{
+        width: 250px;
+        margin:0 auto;
+        h2{
+          float: left;
+          width: 100%;
+          line-height: 48px;
+          font-weight: normal;
+          color: #e36159;
+          margin-top: 45px;
+          span{
+            float: left;
+            font-size: 44px;
+            margin-left:45px;
+            margin-right: 10px;
+          }
+        }
+        p{
+          float: left;
+          width: 100%;
+          font-size: 15px;
+          color: #333333;
+          margin-bottom: 10px;
+          text-align: center;
+          line-height: 28px;
+          margin-top: 30px;
+        }
+        #add_bankCard{
+          float: left;
+          width: 178px;
+          height: 38px;
+          color: #e3625a;
+          border: 1px solid #e3625a;
+          border-radius: 8px;
+          text-align: center;
+          line-height: 38px;
+          margin-left: 35px;
+          margin-top: 60px;
+        }
+        #add_bankCard:hover{
+          cursor: pointer;
+        }
+      }
+
+      form {
+        width: 400px;
+        margin: 24px auto 0;
+        input {
+          float: left;
+          width: 374px;
+          padding: 0 12px;
+          border: 1px solid #cccccc;
+          height: 38px;
+          margin-bottom: 20px;
+        }
+        input[type=file]{
+          border:0 none;
+          padding: 0;
+          height: auto;
+          background-color: #e36159;
+        }
+        button{
+          width: 90px;
+          height: 30px;
+          border: 0 none;
+          background-color: #e36159;
+          color: #ffffff;
+          margin-bottom: 15px;
+        }
+        >.dxyzm{
+          width: 398px !important;
+          border: 1px solid #e3635b !important;
+          border-radius: 4px !important;
+          color: #e3625a !important;
+          background-color: #ffffff !important;
+        }
+        input[type=submit], input[type=button] {
+          height: 44px;
+          width: 185px;
+          color: #ffffff;
+          border-radius: 4px;
+          border: 0 none;
+          font-size: 18px;
+          outline: 0 none;
+        }
+        input[type=submit] {
+          float: left;
+          background-color: #e36159;
+        }
+        input[type=button] {
+          float: right;
+          background-color: #cccccc;
+        }
+        input[type=submit]:hover,input[type=button]:hover{
+          cursor: pointer;
+        }
+        div{
+          float: left;
+          width: 100%;
+          position: relative;
+          margin-bottom: 10px;
+          p{
+            float: left;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            font-size: 16px;
+            color: #333333;
+            font-weight: bold;
+          }
+          i{
+            float: left;
+            position: absolute;
+            top: 10px;
+            width: 145px;
+            height: 1px;
+            background-color: #dddddd;
+          }
+          i:nth-of-type(1){
+            left: 0;
+          }
+          i:nth-of-type(2){
+            right: 0;
+          }
+        }
+      }
+
+    }
+    .icon-close:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.ts {
+  position: absolute;
+  display: none;
+  left: 0;
+  line-height: 20px;
+  top: -21px;
+  background-color: #ffebeb;
+  width: 100%;
+  //color: red;
+  //border-radius: 3px;
+  //background-color: #ffffff;
+  //box-shadow: 0 0 5px #000;
+  color: #e53838;
+  text-indent: 40px;
+  font-size: 12px;
 }
