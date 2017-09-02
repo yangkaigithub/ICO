@@ -19,7 +19,7 @@ public class MallController {
 
     @RequestMapping(value = "/addCommodity")
     public String addCommodity(){
-        return "/shop_addcommodity";
+        return "/shop_addCommodity";
     }
 
 

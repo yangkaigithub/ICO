@@ -39,6 +39,7 @@
                         <li><a href="">个人中心</a></li>
                         <li><a href="">我的订单</a></li>
                         <li><a href="">我的收货地址</a></li>
+                        <li><a href="/mall/addCommodity">添加商品</a></li>
                         <li><a href="">退出</a></li>
                     </ul>
                 </div>
